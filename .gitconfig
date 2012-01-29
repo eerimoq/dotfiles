@@ -3,3 +3,7 @@
 	email = erik.moqvist@gmail.com
 [color]
 	ui = always
+[alias]
+	co = checkout
+	br = branch
+	com = commit

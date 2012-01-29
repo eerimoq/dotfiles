@@ -29,7 +29,7 @@ git_prompt()
         branch=${BASH_REMATCH[1]}
         
         if [[ $git_status =~ $branch_behind_remote ]]; then
-            branch_color=$Q_LIGHT_GREEN
+            branch_color=$Q_CYAN
         else
             branch_color=$Q_GREEN
         fi

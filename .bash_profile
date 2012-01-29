@@ -19,6 +19,7 @@ git_prompt()
     git_status="$(git status 2> /dev/null)"
     branch_pattern="^# On branch ([^${IFS}]*)"
     branch_behind_remote="# Your branch is behind"
+    branch_behind_ahead="# Your branch is ahead"
     changes_to_be_committed="# Changes to be committed:"
     changes_not_staged="# Changes not staged for commit:"
     untracked_files="# Untracked files:"

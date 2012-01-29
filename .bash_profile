@@ -14,7 +14,7 @@ Q_CYAN="\033[0;36m"
 Q_WHITE="\033[0;37m"
 Q_YELLOW="\033[0;33m"
 
-parse_git_branch()
+git_prompt()
 {
     git_status="$(git status 2> /dev/null)"
     branch_pattern="^# On branch ([^${IFS}]*)"
@@ -57,4 +57,4 @@ parse_git_branch()
     fi
 }
 
-PS1="\u@\h \w \$(parse_git_branch)$Q_WHITE> "
+PS1="\u@\h \w \$(git_prompt)$Q_WHITE> "

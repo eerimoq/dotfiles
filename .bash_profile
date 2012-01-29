@@ -11,6 +11,7 @@
 
 Q_GREEN="\033[0;32m"
 Q_CYAN="\033[0;36m"
+Q_MAGENTA="\033[0;34m"
 Q_WHITE="\033[0;37m"
 Q_YELLOW="\033[0;33m"
 
@@ -32,7 +33,11 @@ git_prompt()
         if [[ $git_status =~ $branch_behind_remote ]]; then
             branch_color=$Q_CYAN
         else
-            branch_color=$Q_GREEN
+            if [[ $git_status =~ $branch_behind_ahead ]]; then
+                branch_color=$Q_CYAN
+            else
+                branch_color=$Q_GREEN
+            fi
         fi
         if [[ $git_status =~ $changes_to_be_committed ]]; then
             state="1"

@@ -131,9 +131,9 @@ sub cmd_cbclipboard {
 			 " GC:" . chr(3) . "12 " . int($gc) . "k" . chr(3) .
 			 " Food:" . chr(3) . "12 " . int($food) . "k" . chr(3) .
 			 " Runes:" . chr(3) . "12 " . int($runes) . "k");
-	$server->command("msg $witem->{'name'} NW:" . chr(3) . "6 " . $nw . " (" . $nwpa . ")" . chr(3) .
-			 " Off:" . chr(3) . "4 " . $off . " (" . $opa . ")" . chr(3) .
-			 " Def:" . chr(3) . "4 " . $def . " (" . $dpa . ")");
+	$server->command("msg $witem->{'name'} NW:" . chr(3) . "6 " . int($nw / 1000) . "k (" . $nwpa . ")" . chr(3) .
+			 " Off:" . chr(3) . "4 " . int($off / 1000) . "k (" . $opa . ")" . chr(3) .
+			 " Def:" . chr(3) . "4 " . int($def / 1000) . "k (" . $dpa . ")");
 	$server->command("msg $witem->{'name'} Export:" . chr(3) . "3 " . $expLine);
     } elsif ($cb =~ /\*\* Export Line \[ver \d+\] -- Military \[ver \d+\]: \*\*(.*)/s) {
 	# SoM in clipboard
@@ -150,4 +150,13 @@ sub cmd_cbclipboard {
 			 chr(3) . "7" . $racepers);
 	$server->command("msg $witem->{'name'} Export:" . chr(3) . "3 " . $expLine);
     }
+}
+
+Irssi::command_bind('infos','cmd_info');
+
+sub cmd_info {
+    my ($arguments, $server, $witem) = @_;
+    Irssi::print chr(3) . "7Qvist           Suicidal                  Orc/Tactican";
+    Irssi::print chr(3) . "7Dwarp           Trichotillomaniac         Orc/Warrior";
+    Irssi::print chr(3) . "7iland           PSYCHO DAD                Orc/Cleric";
 }

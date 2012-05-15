@@ -158,5 +158,27 @@ sub cmd_info {
     my ($arguments, $server, $witem) = @_;
     Irssi::print chr(3) . "7Qvist           Suicidal                  Orc/Tactican";
     Irssi::print chr(3) . "7Dwarp           Trichotillomaniac         Orc/Warrior";
-    Irssi::print chr(3) . "7iland           PSYCHO DAD                Orc/Cleric";
+    Irssi::print chr(3) . "6MHK             Insomniac                 Faery/Rogue";
+    Irssi::print chr(3) . "6DarthRonin      Anxious                   Faery/Rogue";
+    Irssi::print chr(3) . "5Funny_Is_Good   Kleptomaniac              Faery/Mystic";
+    Irssi::print chr(3) . "5Spica           exobitionist              Faery/Mystic";
+    Irssi::print chr(3) . "7iland           delirium tremens          Orc/";
+    Irssi::print chr(3) . "10Shifty          Paranoid                  Elf/Mystic";
+    Irssi::print chr(3) . "7Sageville       Pyromaniac";
+    Irssi::print chr(3) . "7Akash           Narcissistic";
+    Irssi::print chr(3) . "7JabbaDeath      Parasomniac";
+    Irssi::print chr(3) . "7Katla           Bigorexic";
+    Irssi::print chr(3) . "7orchiles        Autistic                  Orc/Cleric";
+    Irssi::print chr(3) . "7Vuthy           Hypomaniac ";
+    Irssi::print chr(3) . "10Jabbaproly      Schizophrenic             Elf/Mystic";
+    Irssi::print chr(3) . "7Myotis          Agoraphobic ";
+    Irssi::print chr(3) . "7Ichigo          Megalomaniac ";
+    Irssi::print chr(3) . "7ugh             pica ";
+    Irssi::print chr(3) . "7HappyFeet       PTSD ";
+    Irssi::print chr(3) . "7longbeard       Hypochondriac ";
+    Irssi::print chr(3) . "7romulus         OCPD  ";
+    Irssi::print chr(3) . "7Adich           Oneirophrenia ";
+    Irssi::print chr(3) . "7Kazihn          Perfectionist ";
+    Irssi::print chr(3) . "7Luiz            Nightmare  ";
+
 }

@@ -63,4 +63,6 @@ git_prompt()
     fi
 }
 
-PS1="\u@\h \w \$(git_prompt)$Q_WHITE> "
+PS1="\u@\h \w \$(git_prompt)$Q_WHITE> \[\e[0m\]"
+
+export PATH=$PATH:~/rebar

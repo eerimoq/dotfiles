@@ -57,12 +57,12 @@ git_prompt()
         if [[ $state == "000" ]]; then
             state_color=$Q_GREEN
         else
-            state_color=$Q_YELLOW
+            state_color=$Q_CYAN
         fi
         echo -ne $state_color$state $branch_color$branch" "
     fi
 }
 
-PS1="\u@\h \w \$(git_prompt)$Q_WHITE> \[\e[0m\]"
+PS1="\u@\h \w \$(git_prompt)\[\e[0m\]> "
 
 export PATH=$PATH:~/rebar

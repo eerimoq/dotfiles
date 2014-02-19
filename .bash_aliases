@@ -18,3 +18,5 @@ alias em='emacs --no-splash'
 alias emnw='emacs --no-splash -nw'
 alias replace_recursive_in_files='echo "find . -type f -exec sed -i 's///g' {} \;"'
 alias emacs='emacs -geometry 100x60 -font 6x13'
+
+alias make='make -s'

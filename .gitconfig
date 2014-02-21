@@ -1,10 +1,7 @@
 [user]
-	name = Erik
 	email = erik.moqvist@gmail.com
+	user = Erik Moqvist
+[core]
+	excludesfile = ~/.gitignore
 [color]
-	ui = always
-[alias]
-	co = checkout
-	br = branch
-	com = commit
-	st = status
+	ui = true

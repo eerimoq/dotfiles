@@ -65,4 +65,4 @@ git_prompt()
 
 PS1="\u@\h \w \$(git_prompt)\[\e[0m\]\n> "
 
-export PATH=$PATH:~/rebar
+export PATH=$PATH:~/rebar:~/bin

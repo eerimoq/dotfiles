@@ -65,4 +65,4 @@ git_prompt()
 
 PS1="\u@\h \w \$(git_prompt)\[\e[0m\]\n> "
 
-export PATH=$PATH:~/rebar:~/bin
+export PATH=$PATH:~/rebar:~/bin:~/Downloads/gcc-arm-none-eabi-4_8-2013q4/bin

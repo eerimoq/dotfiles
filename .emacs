@@ -3,7 +3,7 @@
 
 (show-paren-mode)
 
-(setq-default indent-tabs-mode nil)
+(setq-default c-basic-offset 4)
 
 (defun refresh-file ()
   (interactive)

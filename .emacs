@@ -1,6 +1,3 @@
-(set-background-color "gray5")
-(set-foreground-color "white")
-
 (show-paren-mode)
 
 (setq-default c-basic-offset 4)
@@ -47,8 +44,8 @@
 (set-mouse-color "white")
 
 ;; Set foreground and background
-(set-foreground-color "black")
-(set-background-color "white")
+(set-foreground-color "white")
+(set-background-color "gray15")
 
 ;; Set highlighting colors for isearch and drag
 (set-face-foreground 'highlight "white")

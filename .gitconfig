@@ -3,5 +3,8 @@
 	user = Erik Moqvist
 [core]
 	excludesfile = ~/.gitignore
+	editor = emacs -nw
 [color]
 	ui = true
+[push]
+	default = simple

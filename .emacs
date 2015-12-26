@@ -9,6 +9,9 @@
 
 (global-set-key [f5] 'refresh-file)
 
+(require 'xcscope)
+(cscope-setup)
+
 ;; Configure flymake for Python
 (when (load "flymake" t)
   (defun flymake-pylint-init ()

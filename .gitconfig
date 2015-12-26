@@ -8,3 +8,6 @@
 	ui = true
 [push]
 	default = simple
+[alias]
+	mdiff = diff --word-diff=color
+	mlog = log --graph --all --decorate

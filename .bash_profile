@@ -18,12 +18,12 @@ Q_YELLOW="\033[0;33m"
 git_prompt()
 {
     git_status="$(git status 2> /dev/null)"
-    branch_pattern="^# On branch ([^${IFS}]*)"
-    branch_behind_remote="# Your branch is behind"
-    branch_behind_ahead="# Your branch is ahead"
-    changes_to_be_committed="# Changes to be committed:"
-    changes_not_staged="# Changes not staged for commit:"
-    untracked_files="# Untracked files:"
+    branch_pattern="^On branch ([^${IFS}]*)"
+    branch_behind_remote="Your branch is behind"
+    branch_behind_ahead="Your branch is ahead"
+    changes_to_be_committed="Changes to be committed:"
+    changes_not_staged="Changes not staged for commit:"
+    untracked_files="Untracked files:"
     #Reflects repo working state
     state=
     
@@ -64,5 +64,3 @@ git_prompt()
 }
 
 PS1="\u@\h \w \$(git_prompt)\[\e[0m\]\n> "
-
-export PATH=$PATH:~/rebar:~/bin:~/Downloads/gcc-arm-none-eabi-4_8-2013q4/bin

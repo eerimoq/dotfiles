@@ -31,6 +31,11 @@
 (add-hook 'python-mode-hook '(lambda () (define-key python-mode-map "\C-c\C-n" 'flymake-goto-next-error)))
 (add-hook 'python-mode-hook '(lambda () (define-key python-mode-map "\C-c\C-p" 'flymake-goto-prev-error)))
 
+(add-to-list 'auto-mode-alist '("\\.sconscript\\'" . python-mode))
+(add-to-list 'auto-mode-alist '("\\.SConscript\\'" . python-mode))
+(add-to-list 'auto-mode-alist '("sconstruct\\'" . python-mode))
+(add-to-list 'auto-mode-alist '("SConstruct\\'" . python-mode))
+
 ;; To avoid having to mouse hover for the error message, these functions make flymake error messages
 ;; appear in the minibuffer
 (defun show-fly-err-at-point ()

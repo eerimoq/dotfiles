@@ -1,6 +1,7 @@
 [user]
 	email = erik.moqvist@gmail.com
 	user = Erik Moqvist
+	name = Erik Moqvist
 [core]
 	excludesfile = ~/.gitignore
 	editor = emacs -nw

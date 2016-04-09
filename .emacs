@@ -2,15 +2,20 @@
 
 (setq-default c-basic-offset 4)
 
+(add-to-list 'load-path "/home/erik/workspace/rust/rust-mode/")
+(autoload 'rust-mode "rust-mode" nil t)
+(add-to-list 'auto-mode-alist '("\\.rs\\'" . rust-mode))
+
 (defun refresh-file ()
   (interactive)
   (revert-buffer t t t)
   )
 
+(setq-default fill-column 70)
+
 (global-set-key [f5] 'refresh-file)
 
-(require 'xcscope)
-(cscope-setup)
+(global-set-key [f6] 'find-grep-c-source)
 
 ;; Configure flymake for Python
 (when (load "flymake" t)

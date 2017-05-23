@@ -86,6 +86,11 @@
 ;; Prevent Extraneous Tabs
 (setq-default indent-tabs-mode nil)
 
+(add-hook 'c-mode-hook
+          (lambda ()
+            (c-set-offset 'arglist-intro '+)
+            (c-set-offset 'arglist-close 0)))
+
 ;; Set cursor color
 (set-cursor-color "red")
 

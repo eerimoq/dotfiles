@@ -8,4 +8,4 @@ rm -f .gitconfig && ln -s dotfiles/.gitconfig .gitconfig
 rm -f .gitignore && ln -s dotfiles/.gitignore .gitignore
 
 # emacs c navigation
-apt-get install xcscope-el
+#apt-get install xcscope-el

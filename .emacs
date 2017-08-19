@@ -1,5 +1,7 @@
 (show-paren-mode)
 
+(savehist-mode 1)
+
 (setq-default c-basic-offset 4)
 
 (add-to-list 'load-path "/home/erik/workspace/rust/rust-mode/")
@@ -98,18 +100,32 @@
 (set-mouse-color "white")
 
 ;; Set foreground and background
-(set-foreground-color "white")
-(set-background-color "gray15")
+(set-foreground-color "black")
+(set-background-color "white")
 
 ;; Set highlighting colors for isearch and drag
-(set-face-foreground 'highlight "white")
-(set-face-background 'highlight "blue")
+(set-face-foreground 'highlight "blue")
+(set-face-background 'highlight "white")
 
-(set-face-foreground 'region "cyan")
-(set-face-background 'region "blue")
+(set-face-foreground 'region "blue")
+(set-face-background 'region "cyan")
 
-(set-face-foreground 'secondary-selection "skyblue")
-(set-face-background 'secondary-selection "darkblue")
+(set-face-foreground 'secondary-selection "darkblue")
+(set-face-background 'secondary-selection "skyblue")
+
+;; ;; Set foreground and background
+;; (set-foreground-color "white")
+;; (set-background-color "gray15")
+;; 
+;; ;; Set highlighting colors for isearch and drag
+;; (set-face-foreground 'highlight "white")
+;; (set-face-background 'highlight "blue")
+;; 
+;; (set-face-foreground 'region "cyan")
+;; (set-face-background 'region "blue")
+;; 
+;; (set-face-foreground 'secondary-selection "skyblue")
+;; (set-face-background 'secondary-selection "darkblue")
 
 (global-font-lock-mode 1)
 (setq font-lock-maximum-decoration t)

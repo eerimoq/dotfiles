@@ -109,3 +109,5 @@ fi
 if [ -f ~/.bash_profile ]; then
    source ~/.bash_profile
 fi
+
+export PATH=$PATH:$(readlink -f ~/bin)

@@ -16,15 +16,15 @@ There are two things you can do about this warning:
     ;; For important compatibility libraries like cl-lib
     (add-to-list 'package-archives (cons "gnu" (concat proto "://elpa.gnu.org/packages/")))))
 
-;; Added by Package.el.  This must come before configurations of
-;; installed packages.  Don't delete this line.  If you don't want it,
-;; just comment it out by adding a semicolon to the start of the line.
-;; You may delete these explanatory comments.
 (package-initialize)
 
 (show-paren-mode)
 
 (savehist-mode 1)
+
+(add-to-list 'auto-mode-alist '("src\\/.*\\.js\\'" . rjsx-mode))
+
+(add-to-list 'auto-mode-alist '(".*\\.proto\\'" . protobuf-mode))
 
 (setq-default c-basic-offset 4)
 
@@ -63,9 +63,13 @@ There are two things you can do about this warning:
 
 (setq-default fill-column 70)
 
+(add-to-list 'load-path "~/dotfiles/")
+
 (global-set-key [f5] 'refresh-file)
 
 (global-set-key [f6] 'find-grep-c-source)
+
+(require 'protobuf-mode)
 
 ;; Configure flymake for Python
 (when (load "flymake" t)

@@ -1,8 +1,54 @@
+(require 'package)
+(let* ((no-ssl (and (memq system-type '(windows-nt ms-dos))
+                    (not (gnutls-available-p))))
+       (proto (if no-ssl "http" "https")))
+  (when no-ssl
+    (warn "\
+Your version of Emacs does not support SSL connections,
+which is unsafe because it allows man-in-the-middle attacks.
+There are two things you can do about this warning:
+1. Install an Emacs version that does support SSL and be safe.
+2. Remove this warning from your init file so you won't see it again."))
+  ;; Comment/uncomment these two lines to enable/disable MELPA and MELPA Stable as desired
+  (add-to-list 'package-archives (cons "melpa" (concat proto "://melpa.org/packages/")) t)
+  ;;(add-to-list 'package-archives (cons "melpa-stable" (concat proto "://stable.melpa.org/packages/")) t)
+  (when (< emacs-major-version 24)
+    ;; For important compatibility libraries like cl-lib
+    (add-to-list 'package-archives (cons "gnu" (concat proto "://elpa.gnu.org/packages/")))))
+
+;; Added by Package.el.  This must come before configurations of
+;; installed packages.  Don't delete this line.  If you don't want it,
+;; just comment it out by adding a semicolon to the start of the line.
+;; You may delete these explanatory comments.
+(package-initialize)
+
 (show-paren-mode)
 
 (savehist-mode 1)
 
 (setq-default c-basic-offset 4)
+
+(add-to-list 'auto-mode-alist '("src\\/.*\\.js\\'" . rjsx-mode))
+
+;; compilation color
+(require 'ansi-color)
+
+(defun colorize-compilation-buffer ()
+  (when (eq major-mode 'compilation-mode)
+    (ansi-color-process-output nil)
+    (setq-local comint-last-output-start (point-marker))))
+
+;;(defun endless/colorize-compilation ()
+;;  "Colorize from `compilation-filter-start' to `point'."
+;;  (let ((inhibit-read-only t))
+;;    (ansi-color-apply-on-region
+;;     compilation-filter-start (point))))
+
+(add-hook 'compilation-filter-hook
+          #'colorize-compilation-buffer)
+
+(add-to-list 'default-frame-alist
+             '(font . "DejaVu Sans Mono-12"))
 
 (add-to-list 'load-path "/home/erik/workspace/rust/rust-mode/")
 (autoload 'rust-mode "rust-mode" nil t)
@@ -12,6 +58,8 @@
   (interactive)
   (revert-buffer t t t)
   )
+
+(set-face-attribute 'default nil :height 200)
 
 (setq-default fill-column 70)
 
@@ -27,12 +75,12 @@
            (local-file (file-relative-name
                         temp-file
                         (file-name-directory buffer-file-name))))
-      (list "epylint" (list local-file))))
+      (list "epylint3" (list local-file))))
   (add-to-list 'flymake-allowed-file-name-masks
                '("\\.py\\'" flymake-pylint-init)))
 
 ;; Configure to wait a bit longer after edits before starting
-(setq-default flymake-no-changes-timeout '3)
+(setq-default flymake-no-changes-timeout '2)
 
 ;; Keymaps to navigate to the errors
 (add-hook 'python-mode-hook '(lambda () (define-key python-mode-map "\C-c\C-n" 'flymake-goto-next-error)))
@@ -58,7 +106,7 @@
 (add-hook 'post-command-hook 'show-fly-err-at-point)
 
 ;; Set as a minor mode for Python
-(add-hook 'python-mode-hook '(lambda () (flymake-mode)))
+;;(add-hook 'python-mode-hook '(lambda () (flymake-mode)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; Switch buffer using iswitchb
@@ -159,3 +207,18 @@
 (global-set-key [M-right] 'windmove-right)        ; move to right window
 (global-set-key [M-up] 'windmove-up)              ; move to upper window
 (global-set-key [M-down] 'windmove-down)          ; move to downer window
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(column-number-mode t)
+ '(package-selected-packages (quote (rjsx-mode js2-mode)))
+ '(show-paren-mode t)
+ '(tool-bar-mode nil))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(default ((t (:family "DejaVu Sans Mono" :foundry "PfEd" :slant normal :weight normal :height 98 :width normal)))))

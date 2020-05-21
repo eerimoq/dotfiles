@@ -71,24 +71,24 @@ There are two things you can do about this warning:
 
 (require 'protobuf-mode)
 
-;; Configure flymake for Python
-(when (load "flymake" t)
-  (defun flymake-pylint-init ()
-    (let* ((temp-file (flymake-init-create-temp-buffer-copy
-                       'flymake-create-temp-inplace))
-           (local-file (file-relative-name
-                        temp-file
-                        (file-name-directory buffer-file-name))))
-      (list "epylint3" (list local-file))))
-  (add-to-list 'flymake-allowed-file-name-masks
-               '("\\.py\\'" flymake-pylint-init)))
-
-;; Configure to wait a bit longer after edits before starting
-(setq-default flymake-no-changes-timeout '2)
+;;;; Configure flymake for Python
+;;(when (load "flymake" t)
+;;  (defun flymake-pylint-init ()
+;;    (let* ((temp-file (flymake-init-create-temp-buffer-copy
+;;                       'flymake-create-temp-inplace))
+;;           (local-file (file-relative-name
+;;                        temp-file
+;;                        (file-name-directory buffer-file-name))))
+;;      (list "epylint3" (list local-file))))
+;;  (add-to-list 'flymake-allowed-file-name-masks
+;;               '("\\.py\\'" flymake-pylint-init)))
+;;
+;;;; Configure to wait a bit longer after edits before starting
+;;(setq-default flymake-no-changes-timeout '2)
 
 ;; Keymaps to navigate to the errors
-(add-hook 'python-mode-hook '(lambda () (define-key python-mode-map "\C-c\C-n" 'flymake-goto-next-error)))
-(add-hook 'python-mode-hook '(lambda () (define-key python-mode-map "\C-c\C-p" 'flymake-goto-prev-error)))
+;;(add-hook 'python-mode-hook '(lambda () (define-key python-mode-map "\C-c\C-n" 'flymake-goto-next-error)))
+;;(add-hook 'python-mode-hook '(lambda () (define-key python-mode-map "\C-c\C-p" 'flymake-goto-prev-error)))
 
 (add-to-list 'auto-mode-alist '("\\.sconscript\\'" . python-mode))
 (add-to-list 'auto-mode-alist '("\\.SConscript\\'" . python-mode))
@@ -97,19 +97,19 @@ There are two things you can do about this warning:
 
 ;; To avoid having to mouse hover for the error message, these functions make flymake error messages
 ;; appear in the minibuffer
-(defun show-fly-err-at-point ()
-  "If the cursor is sitting on a flymake error, display the message in the minibuffer"
-  (require 'cl)
-  (interactive)
-  (let ((line-no (line-number-at-pos)))
-    (dolist (elem flymake-err-info)
-      (if (eq (car elem) line-no)
-      (let ((err (car (second elem))))
-        (message "%s" (flymake-ler-text err)))))))
-
-(add-hook 'post-command-hook 'show-fly-err-at-point)
-
-;; Set as a minor mode for Python
+;;(defun show-fly-err-at-point ()
+;;  "If the cursor is sitting on a flymake error, display the message in the minibuffer"
+;;  (require 'cl)
+;;  (interactive)
+;;  (let ((line-no (line-number-at-pos)))
+;;    (dolist (elem flymake-err-info)
+;;      (if (eq (car elem) line-no)
+;;      (let ((err (car (second elem))))
+;;        (message "%s" (flymake-ler-text err)))))))
+;;
+;;(add-hook 'post-command-hook 'show-fly-err-at-point)
+;;
+;;;; Set as a minor mode for Python
 ;;(add-hook 'python-mode-hook '(lambda () (flymake-mode)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -168,14 +168,14 @@ There are two things you can do about this warning:
 ;; ;; Set foreground and background
 ;; (set-foreground-color "white")
 ;; (set-background-color "gray15")
-;; 
+;;
 ;; ;; Set highlighting colors for isearch and drag
 ;; (set-face-foreground 'highlight "white")
 ;; (set-face-background 'highlight "blue")
-;; 
+;;
 ;; (set-face-foreground 'region "cyan")
 ;; (set-face-background 'region "blue")
-;; 
+;;
 ;; (set-face-foreground 'secondary-selection "skyblue")
 ;; (set-face-background 'secondary-selection "darkblue")
 
@@ -217,7 +217,7 @@ There are two things you can do about this warning:
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(column-number-mode t)
- '(package-selected-packages (quote (rjsx-mode js2-mode)))
+ '(package-selected-packages (quote (magit rjsx-mode js2-mode)))
  '(show-paren-mode t)
  '(tool-bar-mode nil))
 (custom-set-faces
@@ -226,3 +226,8 @@ There are two things you can do about this warning:
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(default ((t (:family "DejaVu Sans Mono" :foundry "PfEd" :slant normal :weight normal :height 98 :width normal)))))
+
+(require 'compile)
+(add-to-list
+ 'compilation-error-regexp-alist
+ '("at \\([^:]+\\):\\([0-9]+\\) in " 1 2))

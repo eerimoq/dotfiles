@@ -64,3 +64,5 @@ git_prompt()
 }
 
 PS1="\u@${HOSTNAME} \w \$(git_prompt)\[\e[0m\]\n> "
+
+export PATH="$HOME/.poetry/bin:$PATH"
